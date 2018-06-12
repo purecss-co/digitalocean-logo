@@ -1,0 +1,95 @@
+// colors
+$bg-color: #105df5;
+$bg-gradient-color: radial-gradient(circle, #105df5 30%, #233df5);
+$logo-color: #fff;
+
+// fonts
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600");
+$montserrat-font: 'Montserrat', sans-serif;
+
+// mixins
+@mixin center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+@mixin pseudo($position: absolute, $content: "") {
+    content: $content;
+    position: $position;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background: $bg-gradient-color;
+  overflow: hidden;
+}
+
+.logo{
+  @include center;
+
+  .circle{
+    @include center;
+    z-index: 1;
+    top: -20vmin;
+    width: 23vmin;
+    height: 23vmin;
+    border: 7.5vmin solid $logo-color;
+    border-radius: 50%;
+    background: transparent;
+
+    .box{
+      @include center;
+      top: 20vmin;
+      left: -20vmin;
+      width: 20vmin;
+      height: 20vmin;
+      border-bottom-left-radius: 50%;
+      background: $bg-color;
+
+      .box-small{
+        @include center;
+        top: -4.3vmin;
+        left: 12.7vmin;
+        width: 7.35vmin;
+        height: 7.35vmin;
+        background: $logo-color;
+
+        &:before{
+          @include pseudo;
+          top: 7.3vmin;
+          left: -5.5vmin;
+          width: 5.5vmin;
+          height: 5.7vmin;
+          background: $logo-color;
+        }
+
+        &:after{
+          @include pseudo;
+          top: 2.6vmin;
+          left: -10.2vmin;
+          width: 4.7vmin;
+          height: 4.7vmin;
+          background: $logo-color;
+        }
+      }
+    }
+  }
+}
+
+.title{
+  margin-top: 65vh;
+  margin-left: -2vmin;
+  text-align: center;
+  font-family: $montserrat-font;
+  font-size: 12vmin;
+  color: $logo-color;
+  font-weight: 600;
+}
